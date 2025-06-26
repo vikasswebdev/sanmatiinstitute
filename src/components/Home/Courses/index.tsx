@@ -63,8 +63,8 @@ const Courses = () => {
                     <h2 className="text-midnight_text text-4xl lg:text-5xl font-semibold mb-5 sm:mb-0">Popular courses.</h2>
                     <Link href={'/'} className="text-primary text-lg font-medium hover:tracking-widest duration-500">Explore courses&nbsp;&gt;&nbsp;</Link>
                 </div>
-                <Slider {...settings}>
-                    {courseData.map((items, i) => (
+                {React.createElement(Slider as any, { ...settings },
+                    courseData.map((items, i) => (
                         <div key={i}>
                             <div className='bg-white m-3 mb-12 px-3 pt-3 pb-12 shadow-course-shadow rounded-2xl h-full'>
                                 <div className="relative rounded-3xl">
@@ -75,6 +75,7 @@ const Courses = () => {
                                 </div>
 
                                 <div className="px-3 pt-6">
+
                                     <Link href="#" className='text-2xl font-bold text-black max-w-75% inline-block'>{items.heading}</Link>
                                     <h3 className='text-base font-normal pt-6 text-black/75'>{items.name}</h3>
                                     <div className="flex justify-between items-center py-6 border-b">
@@ -105,8 +106,8 @@ const Courses = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </Slider>
+                    ))
+                )}
             </div>
         </section>
     );

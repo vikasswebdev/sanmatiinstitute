@@ -1,14 +1,14 @@
 "use client";
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import React from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import { TestimonialData } from "@/app/api/data";
 import { getImagePrefix } from "@/utils/util";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
-const Testimonial = () => {
+const Testimonial: React.FC = () => {
 
     const settings = {
         dots: true,
@@ -67,8 +67,14 @@ const Testimonial = () => {
     return (
         <section id="testimonial">
             <div className='container mx-auto lg:max-w-screen-xl md:max-w-screen-md px-4'>
-                <Slider {...settings}>
-                    {TestimonialData.map((items, i) => (
+                {React.createElement(Slider as any, { ...settings },
+                    TestimonialData.map((items, i) => (
+
+
+
+
+
+
                         <div key={i}>
                             <div className={`bg-white rounded-2xl m-4 p-5 my-20 relative ${i % 2 ? 'shadow-testimonial-shadow2' : 'shadow-testimonial-shadow1'}`}>
                                 <div className="absolute top-[-45px]">
@@ -87,8 +93,8 @@ const Testimonial = () => {
                                 </div>
                             </div>
                         </div>
-                    ))}
-                </Slider>
+                    ))
+                )}
             </div>
         </section>
     );
